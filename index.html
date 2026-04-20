@@ -7,42 +7,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=DM+Sans&display=swap" rel="stylesheet">
     <style>
         *{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:'DM Sans',sans-serif;background:#263640;color:#f5f5f5;scroll-behavior:smooth}
-        header{background:#263640;color:#fff;text-align:center;padding:40px 10px;border-bottom:2px solid #3e5563}
-        header img{width:120px;height:auto;margin-bottom:15px}
-        header h1{font-family:'Open Sans',sans-serif;font-weight:700;font-size:2.5em;margin:0}
-        header p{font-size:1.1em;color:#a8c0d0;margin-top:8px}
-        nav{background:#1e2a33;display:flex;justify-content:center;gap:30px;padding:15px 0;position:sticky;top:0;z-index:1000}
-        nav a{color:#f5f5f5;text-decoration:none;font-weight:700;font-family:'Open Sans',sans-serif;transition:0.3s;position:relative}
-        nav a::after{content:'';position:absolute;width:0;height:2px;bottom:-4px;left:0;background:#79b65e;transition:width 0.3s}
-        nav a:hover::after{width:100%}
-        nav a:hover{color:#79b65e}
-        section{padding:60px 20px;max-width:1000px;margin:auto;display:none;animation:fadeIn 0.8s ease}
+        body{font-family:'DM Sans',sans-serif;background:#263640;color:#f5f5f5;scroll-behavior:smooth;overflow-x:hidden}
+        
+        /* Animated musical notes background */
+        body::before{content:'♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫';position:fixed;top:0;left:0;width:100%;height:100%;font-size:3em;color:rgba(121,182,94,0.05);z-index:0;animation:floatNotes 20s linear infinite;pointer-events:none;letter-spacing:100px;line-height:200px}
+        @keyframes floatNotes{0%{transform:translateY(100vh) rotate(0deg)}100%{transform:translateY(-100vh) rotate(360deg)}}
+        
+        header{background:#263640;color:#fff;text-align:center;padding:40px 10px;border-bottom:2px solid #3e5563;position:relative;z-index:1}
+        header img{width:120px;height:auto;margin-bottom:15px;transition:transform 0.5s;animation:pulse 2s ease-in-out infinite}
+        header img:hover{transform:rotate(360deg) scale(1.1)}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        
+        header h1{font-family:'Open Sans',sans-serif;font-weight:700;font-size:2.5em;margin:0;position:relative;display:inline-block}
+        header h1::before{content:'🎸';position:absolute;left:-50px;animation:swing 2s ease-in-out infinite}
+        header h1::after{content:'🎹';position:absolute;right:-50px;animation:swing 2s ease-in-out infinite;animation-delay:1s}
+        @keyframes swing{0%,100%{transform:rotate(0deg)}25%{transform:rotate(15deg)}75%{transform:rotate(-15deg)}}
+        
+        header p{font-size:1.1em;color:#a8c0d0;margin-top:8px;animation:fadeInUp 1s ease}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        
+        nav{background:#1e2a33;display:flex;justify-content:center;gap:30px;padding:15px 0;position:sticky;top:0;z-index:1000;box-shadow:0 4px 10px rgba(0,0,0,0.3)}
+        nav a{color:#f5f5f5;text-decoration:none;font-weight:700;font-family:'Open Sans',sans-serif;transition:0.3s;position:relative;padding:8px 15px;border-radius:20px}
+        nav a::before{content:'♪';position:absolute;left:-20px;opacity:0;transition:0.3s;color:#79b65e}
+        nav a:hover::before{opacity:1;left:5px}
+        nav a::after{content:'';position:absolute;width:0;height:2px;bottom:0;left:50%;background:#79b65e;transition:all 0.3s;transform:translateX(-50%)}
+        nav a:hover::after{width:80%}
+        nav a:hover{color:#79b65e;background:rgba(121,182,94,0.1);transform:translateY(-3px)}
+        
+        section{padding:60px 20px;max-width:1000px;margin:auto;display:none;animation:fadeIn 0.8s ease;position:relative;z-index:1}
         section.active{display:block}
         @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        h2{text-align:center;color:#79b65e;margin-bottom:20px;font-family:'Open Sans',sans-serif;font-weight:700;font-size:1.8em}
+        
+        h2{text-align:center;color:#79b65e;margin-bottom:20px;font-family:'Open Sans',sans-serif;font-weight:700;font-size:1.8em;position:relative;display:inline-block;width:100%;animation:slideIn 0.6s ease}
+        h2::before,h2::after{content:'🎵';position:absolute;font-size:0.6em;animation:bounce 1s ease-in-out infinite}
+        h2::before{left:calc(50% - 150px)}
+        h2::after{right:calc(50% - 150px)}
+        @keyframes slideIn{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        
         p{text-align:center;line-height:1.6;color:#d0d8df}
-        .founder-section{display:flex;align-items:center;gap:30px;margin:30px auto;max-width:800px;flex-wrap:wrap;justify-content:center}
-        .founder-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid #79b65e;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+        
+        .founder-section{display:flex;align-items:center;gap:30px;margin:30px auto;max-width:800px;flex-wrap:wrap;justify-content:center;animation:fadeIn 1s ease}
+        .founder-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid #79b65e;box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:all 0.5s;position:relative}
+        .founder-photo:hover{transform:scale(1.1) rotate(5deg);box-shadow:0 8px 20px rgba(121,182,94,0.5)}
+        
         .founder-info{flex:1;min-width:300px;text-align:left}
-        .founder-info h3{color:#79b65e;margin-bottom:10px;font-family:'Open Sans',sans-serif}
+        .founder-info h3{color:#79b65e;margin-bottom:10px;font-family:'Open Sans',sans-serif;position:relative;padding-left:30px}
+        .founder-info h3::before{content:'🎼';position:absolute;left:0}
         .founder-info p{text-align:left;color:#d0d8df}
-        form{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:auto}
-        input,textarea,select,button{padding:12px;font-size:1em;border:1px solid #3e5563;border-radius:8px;background:#1e2a33;color:#f5f5f5}
-        input::placeholder,textarea::placeholder{color:#a8c0d0}
-        button{background:#79b65e;color:#fff;cursor:pointer;border:none;font-family:'Open Sans',sans-serif;font-weight:700;transition:0.3s}
-        button:hover{background:#6a9f52;transform:scale(1.05)}
-        .card{background:#1e2a33;padding:15px;margin:10px 0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-top:20px}
-        .gallery img{width:100%;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:transform 0.3s}
-        .gallery img:hover{transform:scale(1.05)}
-        .form-container{max-width:800px;margin:30px auto;background:white;padding:20px;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}
+        
+        .form-container{max-width:800px;margin:30px auto;background:white;padding:20px;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:all 0.3s;animation:scaleIn 0.6s ease}
+        .form-container:hover{box-shadow:0 8px 20px rgba(121,182,94,0.3);transform:translateY(-5px)}
+        @keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
         .form-container iframe{border-radius:8px}
-        .contact-info{max-width:600px;margin:30px auto;text-align:center}
-        .contact-info p{margin:15px 0;font-size:1.1em}
-        footer{text-align:center;padding:25px;background:#1e2a33;color:#a8c0d0;margin-top:40px;font-size:0.9em}
-        @media (max-width:768px){.form-container{padding:10px}}
-        @media (max-width:600px){.founder-section{flex-direction:column;text-align:center}.founder-info{text-align:center}.founder-info p{text-align:center}}
+        
+        .contact-info{max-width:600px;margin:30px auto;text-align:center;animation:fadeIn 1s ease}
+        .contact-info p{margin:15px 0;font-size:1.1em;padding:15px;background:rgba(121,182,94,0.1);border-radius:10px;border-left:4px solid #79b65e;transition:all 0.3s}
+        .contact-info p:hover{background:rgba(121,182,94,0.2);transform:translateX(10px)}
+        
+        .card{background:#1e2a33;padding:15px;margin:10px 0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all 0.3s;border-left:4px solid #79b65e}
+        .card:hover{transform:translateX(10px);box-shadow:0 4px 15px rgba(121,182,94,0.3)}
+        
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-top:20px}
+        .gallery img{width:100%;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all 0.5s;position:relative}
+        .gallery img:hover{transform:scale(1.05) rotate(2deg);box-shadow:0 8px 20px rgba(121,182,94,0.5);z-index:10}
+        
+        /* Musical wave decoration */
+        .wave-decoration{position:relative;margin:40px 0}
+        .wave-decoration::before{content:'';position:absolute;width:100%;height:2px;background:linear-gradient(90deg,transparent,#79b65e,transparent);animation:wave 3s ease-in-out infinite}
+        @keyframes wave{0%,100%{transform:scaleX(0.8)}50%{transform:scaleX(1.2)}}
+        
+        footer{text-align:center;padding:25px;background:#1e2a33;color:#a8c0d0;margin-top:40px;font-size:0.9em;position:relative;z-index:1;border-top:2px solid #79b65e}
+        footer::before{content:'♪ ♫ ♪';display:block;font-size:1.5em;color:#79b65e;margin-bottom:10px;animation:musicBounce 2s ease-in-out infinite}
+        @keyframes musicBounce{0%,100%{transform:translateY(0)}33%{transform:translateY(-5px)}66%{transform:translateY(5px)}}
+        
+        /* Responsive adjustments */
+        @media (max-width:768px){
+            .form-container{padding:10px}
+            header h1::before,header h1::after{display:none}
+            h2::before,h2::after{font-size:0.5em;left:10px;right:10px}
+        }
+        @media (max-width:600px){
+            .founder-section{flex-direction:column;text-align:center}
+            .founder-info{text-align:center}
+            .founder-info p{text-align:center}
+            .founder-info h3{padding-left:0}
+            .founder-info h3::before{position:relative}
+        }
+        
+        /* Interactive button effect */
+        button,a.cta-button{position:relative;overflow:hidden}
+        button::before,a.cta-button::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,0.3);transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s}
+        button:hover::before,a.cta-button:hover::before{width:300px;height:300px}
     </style>
 </head>
 <body>
@@ -60,10 +116,12 @@
     </nav>
     <section id="home" class="active">
         <h2>Welcome to Yadidya Musicals</h2>
+        <div class="wave-decoration"></div>
         <p>Learn guitar and keyboard with expert guidance from Mr. Samuel Yadidya. Explore lessons, make enquiries, and experience the joy of music through personalized training.</p>
     </section>
     <section id="about">
         <h2>About Us</h2>
+        <div class="wave-decoration"></div>
         <div class="founder-section">
             <img src="founder-photo.jpg" alt="Mr. Samuel Yadidya" class="founder-photo">
             <div class="founder-info">
@@ -76,6 +134,7 @@
     </section>
     <section id="enquiry">
         <h2>Enquire for Classes</h2>
+        <div class="wave-decoration"></div>
         <p>Fill out the form below and we'll get back to you soon!</p>
         <div class="form-container">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5dCiMSIhb5UJkoS-AoU8S2xVlVIiHzwj1vPoyU0Zh8k37YA/viewform?embedded=true" width="100%" height="1691" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
@@ -83,6 +142,7 @@
     </section>
     <section id="gallery">
         <h2>Image Gallery</h2>
+        <div class="wave-decoration"></div>
         <div class="gallery">
             <img src="https://via.placeholder.com/300x200?text=Guitar+Class" alt="Guitar Class">
             <img src="https://via.placeholder.com/300x200?text=Keyboard+Lesson" alt="Keyboard Lesson">
@@ -92,6 +152,7 @@
     </section>
     <section id="contact">
         <h2>Contact Us</h2>
+        <div class="wave-decoration"></div>
         <div class="contact-info">
             <p>Get in touch with us for more information about our classes.</p>
             <p><strong>Location:</strong> Visakhapatnam, Andhra Pradesh</p>
