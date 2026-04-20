@@ -195,7 +195,7 @@
                 <h3>Guitar Lessons</h3>
                 <p>Master acoustic guitar with personalized instruction for all skill levels.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onclick="goToKeyboardClasses()">
                 <span class="icon">🎹</span>
                 <h3>Keyboard Classes</h3>
                 <p>Learn piano and keyboard fundamentals with expert guidance.</p>
@@ -213,6 +213,14 @@
         <div class="content-box">
             <h3>Discover Guitar Mastery from the First Note: Beginner Classes in Music Notation, Guitar Basics, Chords & Melodies</h3>
             <p>Unlock the language of music through essential notations, master guitar fundamentals, and play chords and melodies right away—no prior experience needed. Perfect for aspiring worship leaders, hobbyists, or anyone in Visakhapatnam ready to strum with confidence.</p>
+        </div>
+    </section>
+    <section id="keyboard-classes">
+        <h2>Keyboard Classes</h2>
+        <div class="section-divider"></div>
+        <div class="content-box">
+            <h3>Master the Keyboard from Day One: Beginner Classes in Music Theory, Keyboard Fundamentals, Chords & Melodies</h3>
+            <p>Learn to read music notation, build a strong foundation in keyboard technique, and start playing beautiful chords and melodies from your very first lesson—absolutely no experience required. Ideal for aspiring worship musicians, creative enthusiasts, or anyone in Visakhapatnam eager to bring music to life through the keys.</p>
         </div>
     </section>
     <section id="about">
@@ -296,6 +304,13 @@
         function goToGuitarLessons(){
             sections.forEach(sec=>sec.classList.remove('active'));
             document.getElementById('guitar-lessons').classList.add('active');
+            window.scrollTo({top:0,behavior:'smooth'});
+        }
+        
+        // Go to Keyboard Classes section function
+        function goToKeyboardClasses(){
+            sections.forEach(sec=>sec.classList.remove('active'));
+            document.getElementById('keyboard-classes').classList.add('active');
             window.scrollTo({top:0,behavior:'smooth'});
         }
     </script>
