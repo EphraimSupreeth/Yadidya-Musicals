@@ -10,9 +10,25 @@
 
  body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #FFFFFF;
+  background: linear-gradient(135deg, #FFF5E6 0%, #FFFBF0 100%);
     color: #1A2332;
     line-height: 1.6;
+      section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+section:nth-child(even) {
+    background: #F0F8FF;
+}
+
+section:nth-child(odd) {
+    background: #FFFFFF;
+}
 }
 
     /* Header Styles */
@@ -341,11 +357,13 @@
         nav a.active{background:#FF6B35;color:#fff;box-shadow:0 4px 15px rgba(255,107,53,0.3)}
         
         /* Enhanced Sections */
-        section {
+   section {
     padding: 60px 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto;
     background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
         section.active{display:block}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
