@@ -8,12 +8,12 @@
         box-sizing: border-box;
     }
 
-    body {
+ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #FFF5E6 0%, #FFE8CC 100%);
+    background: #FFFFFF;
     color: #1A2332;
     line-height: 1.6;
-    }
+}
 
     /* Header Styles */
     .header-top {
@@ -72,12 +72,11 @@
     }
 
     /* Hero Section */
-   .hero {
+ .hero {
     text-align: center;
     padding: 80px 20px;
-    background: linear-gradient(135deg, #FFF5E6 0%, #FFE8CC 100%);
+    background: #FFFFFF;
 }
-
     .hero h1 {
         font-size: 3.5rem;
         margin-bottom: 20px;
@@ -94,7 +93,7 @@
         border-radius: 2px;
     }
 
-    .hero p {
+   .hero p {
     font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto;
@@ -127,17 +126,16 @@
         margin-top: 40px;
     }
 
-    .instructor-card,
-    .class-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 30px;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 2px solid rgba(0, 217, 255, 0.3);
-    }
-
+  .instructor-card,
+.class-card {
+    background: #F0F8FF;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 217, 255, 0.3);
+}
     .instructor-card:hover,
     .class-card:hover {
         transform: translateY(-10px);
@@ -168,7 +166,6 @@
     font-size: 1rem;
     line-height: 1.6;
 }
-
     /* Form Styles */
     form {
         max-width: 600px;
@@ -344,7 +341,12 @@
         nav a.active{background:#FF6B35;color:#fff;box-shadow:0 4px 15px rgba(255,107,53,0.3)}
         
         /* Enhanced Sections */
-        section{padding:80px 30px;max-width:1200px;margin:auto;display:none;animation:fadeInUp 0.8s ease;position:relative;background:#1A1A2E}
+        section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #FFFFFF;
+}
         section.active{display:block}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
         
