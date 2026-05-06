@@ -153,6 +153,44 @@
             .contact-info p{padding:20px 20px;font-size:1em}
             footer .footer-logo{font-size:1.4em}
         }
+        /* Hamburger Menu Icon */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    width: 30px;
+    height: 3px;
+    background: #00D9FF;
+    margin: 4px 0;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+/* Show menu icon on mobile */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav a {
+        display: none;
+        width: 100%;
+    }
+    
+    nav.active a {
+        display: block;
+    }
+}
     </style>
 </head>
 <body>
@@ -162,6 +200,21 @@
         <p>Equipping Young Musicians</p>
     </header>
     <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+
+<nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <a href="#" data-target="home" class="active">Home</a>
+    <a href="#" data-target="about">About</a>
         <a href="#" data-target="home" class="active">Home</a>
         <a href="#" data-target="about">About</a>
         <a href="#" data-target="music-instructors">Music Instructors</a>
@@ -329,6 +382,10 @@
         function openGoogleMaps(){
             window.open('https://www.google.com/maps/search/?api=1&query=Visakhapatnam,+Andhra+Pradesh,+India','_blank');
         }
+        function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+}
     </script>
 </body>
 </html>
