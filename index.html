@@ -1,116 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yadidya Musicals</title>
-    
-    <style>
-     *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
-    min-height: 100vh;
-}
-
-nav {
-    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-nav ul li a:hover {
-    background: #ffffff;
-    color: #f5576c;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-}
-
-nav ul li a.active {
-    background: #ffffff;
-    color: #f5576c;
-}
-
-section {
-    padding: 80px 30px;
-    max-width: 1200px;
-    margin: auto;
-    display: none;
-    animation: fadeInUp 0.8s ease;
-    position: relative;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    border-radius: 20px;
-    margin-top: 40px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
-
-section.active {
-    display: block;
-}
-
-h1, h2 {
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-size: 42px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-    font-size: 36px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #f0f0f0;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-</head>
-<body>
-    
-</head>
-<body>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yadidya Musicals | Equipping Young Musicians</title>
@@ -137,13 +27,7 @@ p {
         nav a.active{background:#FF6B35;color:#fff;box-shadow:0 4px 15px rgba(255,107,53,0.3)}
         
         /* Enhanced Sections */
-   section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 80px auto;
-    background: transparent;
-}
-        section.active{display:block}
+        section{padding:60px 20px;max-width:1200px;margin:80px auto;background:transparent;display:none;animation:fadeInUp 0.8s ease}
         section.active{display:block}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
         
@@ -162,7 +46,7 @@ p {
         .content-box p{text-align:left;line-height:2;font-size:1.15em;color:#e0e0e0}
         .content-box h3{color:#FF6B35;margin-bottom:25px}
         
-        /* Premium Instructor Cards - FIXED */
+        /* Premium Instructor Cards */
         .instructors-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;margin:60px auto;max-width:1200px}
         .instructor-card{display:flex;flex-direction:column;align-items:center;background:#16213E;padding:45px 35px;border-radius:25px;box-shadow:0 10px 40px rgba(0,0,0,0.3);transition:all 0.5s ease;position:relative;overflow:visible;border:2px solid #FF6B35}
         .instructor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#FF6B35,#00D9FF);transform:scaleX(0);transition:transform 0.5s ease}
@@ -240,25 +124,19 @@ p {
             header img{width:120px}
             header h1{font-size:2.2em}
             header p{font-size:1.1em}
-            
             nav{gap:10px;padding:15px 20px}
             nav a{padding:10px 18px;font-size:0.9em}
-            
             section{padding:50px 20px}
             h2{font-size:2em;margin-bottom:15px}
             h2::after{width:70px;height:4px}
-            
             .content-box{padding:30px 25px}
             .instructors-container{grid-template-columns:1fr;gap:30px}
             .instructor-photo-wrapper{width:170px;height:170px}
-            
             .features-grid{grid-template-columns:1fr;gap:25px}
             .feature-card{padding:35px 25px}
-            
             .form-container{padding:20px}
             .gallery{grid-template-columns:1fr;gap:20px}
             .gallery img{height:220px}
-            
             footer{padding:40px 20px}
         }
         
@@ -266,18 +144,13 @@ p {
             header h1{font-size:1.8em}
             header p{font-size:1em}
             header img{width:100px}
-            
             nav{gap:8px;padding:12px 15px}
             nav a{padding:8px 14px;font-size:0.85em}
-            
             section{padding:40px 15px}
             h2{font-size:1.6em}
-            
             .content-box{padding:25px 20px}
             .instructor-photo-wrapper{width:150px;height:150px}
-            
             .contact-info p{padding:20px 20px;font-size:1em}
-            
             footer .footer-logo{font-size:1.4em}
         }
     </style>
@@ -303,9 +176,7 @@ p {
         <div class="welcome-box">
             <p>🎵 Learn guitar and keyboard with expert guidance from Mr. Samuel Yadidya. Explore lessons, make enquiries, and experience the joy of music through personalized training designed for all ages and skill levels.</p>
         </div>
-        
         <p class="nav-hint">👇 Click on any card below to learn more</p>
-        
         <div class="features-grid">
             <div class="feature-card" onclick="goToSection('guitar-lessons')">
                 <span class="icon">🎸</span>
